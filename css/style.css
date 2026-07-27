@@ -1,0 +1,337 @@
+:root {
+  --bg: #020810;
+  --card: #0b111e;
+  --main: #00d2ff;
+  --dim: #94a3b8;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+body {
+  background: var(--bg);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.app-container {
+  width: 95%;
+  max-width: 1200px;
+  height: 92vh;
+  display: flex;
+  align-items: center;
+}
+
+/* FIX: Keep footer inside the card border */
+.glass-card {
+  background: var(--card);
+  border-radius: 40px;
+  height: 100%;
+  border: 2.5px solid var(--main);
+  box-shadow: 0 0 35px rgba(0, 210, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+}
+
+.navbar {
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+}
+.logo span {
+  color: var(--main);
+}
+.nav-menu {
+  display: flex;
+  gap: 8px;
+}
+.nav-link {
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 15px;
+  font-size: 13px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+.nav-link.active {
+  color: var(--main);
+  background: rgba(0, 210, 255, 0.1);
+}
+
+.main-layout {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+.fixed-hero {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  flex-shrink: 0;
+}
+.profile-glow {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 3px solid var(--main);
+  box-shadow: 0 0 25px var(--main);
+  overflow: hidden;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+.profile-glow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.social-links a {
+  font-size: 22px;
+  color: var(--main);
+  margin: 0 10px;
+}
+
+.dynamic-content {
+  flex: 1;
+  padding: 30px 50px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.tab-pane {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.tab-pane.active {
+  display: block;
+  animation: slideUp 0.5s ease;
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll Box Settings */
+.scroll-box {
+  height: 100%;
+  max-height: 440px;
+  overflow-y: auto;
+  padding-right: 12px;
+  width: 100%;
+}
+
+/* --- TEXT & CARDS FIX (The Stacking Fix) --- */
+.interactive-card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 28px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: 0.4s;
+  display: block !important; /* Forces words to stay side-by-side */
+}
+.interactive-card:hover {
+  transform: translateX(10px);
+  border-left: 4px solid var(--main);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Proper Justified Text */
+.para-text,
+.justified-text {
+  display: block !important;
+  text-align: justify !important;
+  text-justify: inter-word;
+  line-height: 1.8;
+  color: var(--dim);
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.para-text span,
+.justified-text span,
+p span {
+  color: var(--main) !important;
+  font-weight: 700;
+  display: inline;
+}
+
+/* Info Row Alignment (Icon + Text) */
+.info-row,
+.info-line {
+  display: grid !important;
+  grid-template-columns: 35px 1fr;
+  gap: 5px;
+  margin-bottom: 12px;
+  align-items: start;
+}
+.info-row p,
+.info-line p {
+  display: block;
+  font-size: 14.5px;
+  color: #fff;
+  text-align: left;
+}
+.icon-glow {
+  color: var(--main);
+  filter: drop-shadow(0 0 3px var(--main));
+  width: 20px;
+  text-align: center;
+  margin-top: 3px;
+}
+
+.white-session {
+  color: #fff !important;
+  font-weight: 800;
+  font-size: 12px;
+  margin-top: 10px;
+  display: block;
+}
+.theme-txt,
+.section-title span {
+  color: var(--main) !important;
+  font-weight: 800;
+}
+.section-title {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+/* Footer Alignment Locked Bottom */
+.footer-stats {
+  padding: 15px 50px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+.stat-group {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+}
+.stat-unit h2 {
+  color: var(--main);
+  font-size: 24px;
+}
+.stat-unit p {
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.copyright {
+  text-align: center;
+  margin-top: 10px;
+  opacity: 0.4;
+  font-size: 10px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--main);
+  border-radius: 10px;
+}
+
+/* --- MOBILE VERSION --- */
+@media (max-width: 900px) {
+  body {
+    overflow: hidden;
+  }
+  .app-container {
+    height: 96vh;
+    width: 98%;
+  }
+  .glass-card {
+    border-radius: 25px;
+  }
+  .navbar {
+    padding: 10px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .nav-menu {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 5px;
+    scrollbar-width: none;
+  }
+  .nav-menu::-webkit-scrollbar {
+    display: none;
+  }
+  .main-layout {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  .fixed-hero {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 30px 0;
+  }
+  .profile-glow {
+    width: 150px;
+    height: 150px;
+  }
+  .dynamic-content {
+    padding: 25px 15px;
+    height: auto;
+    overflow: visible;
+  }
+  .interactive-card {
+    padding: 20px;
+  }
+  .interactive-card:hover {
+    transform: none;
+  }
+  .para-text,
+  .justified-text {
+    text-align: left !important;
+    font-size: 14px;
+  }
+  .footer-stats {
+    padding: 15px 10px;
+  }
+  .stat-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    text-align: center;
+  }
+  .stat-unit h2 {
+    font-size: 18px;
+  }
+}
